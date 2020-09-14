@@ -15,9 +15,9 @@ namespace Slektstre
         public Person Father;
         public Person Mother;
 
-        public string getDescription()
+        public void getDescription()
         {
-            return Convert.ToString();
+            Console.WriteLine(FirstName + "(Id=" + Id + ") Født: " + BirthYear + " Far: " + Father + " (Id=" + Father.Id + ")\n");
         }
     }
 }
