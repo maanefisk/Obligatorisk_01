@@ -17,10 +17,9 @@ namespace Slektstre
 
         public string HandleCommand(string command)
         {
-            
-            if (command == "vis " + getPersonID())
+            if (command == ("vis " + getPersonID()))
             {
-                Console.WriteLine(Person[getPersonID()]);
+                getDescription();
             }
         }
 
