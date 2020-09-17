@@ -20,7 +20,7 @@ namespace Slektstre
             string description = "";
             if (FirstName != null) description += (FirstName + " ");
             if (LastName != null) description += (LastName + " ");
-            if (Id != 0) description += ("(Id=" + Id + ") ");
+            if (Id != 0) description += ("(Id=" + Id + ")");
             if (BirthYear != 0) description += ("Født: " + BirthYear + " ");
             if (YearOfDeath != 0) description += ("Død: " + YearOfDeath + " ");
             if (Father != null) description += ("Far: " + Father.FirstName + " (Id=" + Father.Id + ") ");

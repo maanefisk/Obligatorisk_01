@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Slektstre
 {
-    class FamilyApp
+    public class FamilyApp
     {
         public List<Person> _people;
         public string WelcomeMessage {get; set;}
