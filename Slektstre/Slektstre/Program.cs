@@ -6,9 +6,7 @@ namespace Slektstre
     {
         static void Main(string[] args)
         {
-            string args1 = Console.ReadLine();
-            if (args1 == "hjelp") Console.WriteLine("Hjelp");
-            if (args1 == "list") Console.WriteLine("Listemetode");
+            
             var sverreMagnus = new Person {Id = 1, FirstName = "Sverre Magnus", BirthYear = 2005};
             var ingridAlexandra = new Person {Id = 2, FirstName = "Ingrid Alexandra", BirthYear = 2004};
             var haakon = new Person {Id = 3, FirstName = "Haakon Magnus", BirthYear = 1973};

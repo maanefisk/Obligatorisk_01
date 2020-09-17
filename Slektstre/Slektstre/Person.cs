@@ -23,8 +23,8 @@ namespace Slektstre
             if (Id != null) description += ("(Id=" + Id + ") \n");
             if (BirthYear != null) description += ("Født: " + BirthYear + " \n");
             if (YearOfDeath != null) description += ("Død: " + YearOfDeath + " \n");
-            if (Father != null) description += ("Far: " + Father + " (Id=" + Father.Id + ") \n");
-            if (Mother != null) description += ("Mor: " + Mother + " (Id=" + Mother.Id + ") \n");
+            if (Father != null) description += ("Far: " + Father.FirstName + " (Id=" + Father.Id + ") \n");
+            if (Mother != null) description += ("Mor: " + Mother.FirstName + " (Id=" + Mother.Id + ") \n");
             return description;
             //if (Mother == null) Mother = "";
             //if (Father == null) //en if for hver verdi, mother, født blablaba

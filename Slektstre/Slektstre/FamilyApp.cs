@@ -14,17 +14,27 @@ namespace Slektstre
         {
             _people = new List<Person>(people);
 
-        WelcomeMessage = "Velkommen til familieappen! \n";
+        WelcomeMessage = "Velkommen til familieappen! \n Skriv: \"hjelp\" for info! \n";
         CommandPrompt = "Gi kommando: \n";
         }
 
         public string HandleCommand(string command)
         {
-            int commandId = Convert.ToInt32(command.Substring(4));
+            
             string convertedCommand = command.ToLower();
-            if (convertedCommand == ("vis " + commandId))
+
+            if (convertedCommand == ("vis " + command.Substring(4)))
             {
+                int commandId = Convert.ToInt32(command.Substring(4));
                 return getPersonDescription(commandId);
+            }
+            if (convertedCommand == "hjelp")
+            {
+                return "\n\"Hjelp\" - får opp denne hjelp-teksten\n\"List\" - Lister alle medlemmer\n\"Vis \"nummer\"\" - viser person med tilhørende ID\n";
+            }
+            if (convertedCommand == "list")
+            {
+                return "Liste";
             }
             return "hei";
         }
