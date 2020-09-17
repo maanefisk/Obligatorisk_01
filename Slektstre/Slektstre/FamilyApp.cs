@@ -10,9 +10,9 @@ namespace Slektstre
         public List<Person> _people;
         public string WelcomeMessage {get; set;}
         public string CommandPrompt {get; set;}
-    public FamilyApp(params Person[] people) // Alt som ligger i Person blir til Array som heter people.
+    public FamilyApp(params Person[] people) // Alt som ligger i Person blir til Array som heter _people.
         {
-            _people = new List<Person>(people);
+            _people = new List<Person>(people); //Her blir denne lista navngitt tror jeg
 
         WelcomeMessage = "Velkommen til familieappen! \n Skriv: \"Hjelp\" for info! \n";
         CommandPrompt = "Gi kommando: \n";
