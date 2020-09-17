@@ -17,8 +17,15 @@ namespace Slektstre
 
         public string getDescription()
         {
-            if (Father == null || Mother == null) //en if for hver verdi, mother, født blablaba
-                return (FirstName + "(Id=" + Id + ") Født: " + BirthYear + " Far: " + Father + " (Id=" + Father.Id + ")\n");
+            string description = "";
+            if (FirstName != null) description += (FirstName + " ");
+            if (LastName != null) description += (LastName + " ");
+            if (Id != null) description += ("(Id=" + Id + ") ");
+            if (BirthYear != null) description += ("Født: " + BirthYear + " ");
+            return description;
+            //if (Mother == null) Mother = "";
+            //if (Father == null) //en if for hver verdi, mother, født blablaba
+            //return (FirstName + "(Id=" + Id + ") Født: " + BirthYear + " Far: " + Father + " (Id=" + Father.Id + ")\n");
         }
     }
 }

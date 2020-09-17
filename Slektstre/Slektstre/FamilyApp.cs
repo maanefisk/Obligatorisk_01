@@ -14,18 +14,18 @@ namespace Slektstre
         {
             _people = new List<Person>(people);
 
-        WelcomeMessage = "Welcomewelcome";
-        CommandPrompt = "CommandPrompt";
+        WelcomeMessage = "Welcomewelcome ";
+        CommandPrompt = "CommandPrompt ";
         }
 
         public string HandleCommand(string command)
         {
             int commandId = Convert.ToInt32(command.Substring(4));
-            if (command == ("vis " + commandId))
+            string convertedCommand = command.ToLower();
+            if (convertedCommand == ("vis " + commandId))
             {
                 return getPersonDescription(commandId);
             }
-
             return "hei";
         }
         public string getPersonDescription(int? Id)
