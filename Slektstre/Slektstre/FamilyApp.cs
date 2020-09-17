@@ -14,8 +14,8 @@ namespace Slektstre
         {
             _people = new List<Person>(people);
 
-        WelcomeMessage = "Welcomewelcome ";
-        CommandPrompt = "CommandPrompt ";
+        WelcomeMessage = "Velkommen til familieappen! \n";
+        CommandPrompt = "Gi kommando: \n";
         }
 
         public string HandleCommand(string command)
