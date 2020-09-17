@@ -17,14 +17,14 @@ namespace Slektstre
 
         public string getDescription()
         {
-            string description = "\n";
-            if (FirstName != null) description += (FirstName + " \n");
-            if (LastName != null) description += (LastName + " \n");
-            if (Id != 0) description += ("(Id=" + Id + ") \n");
-            if (BirthYear != 0) description += ("Født: " + BirthYear + " \n");
-            if (YearOfDeath != 0) description += ("Død: " + YearOfDeath + " \n");
-            if (Father != null) description += ("Far: " + Father.FirstName + " (Id=" + Father.Id + ") \n");
-            if (Mother != null) description += ("Mor: " + Mother.FirstName + " (Id=" + Mother.Id + ") \n");
+            string description = "";
+            if (FirstName != null) description += (FirstName + " ");
+            if (LastName != null) description += (LastName + " ");
+            if (Id != 0) description += ("(Id=" + Id + ") ");
+            if (BirthYear != 0) description += ("Født: " + BirthYear + " ");
+            if (YearOfDeath != 0) description += ("Død: " + YearOfDeath + " ");
+            if (Father != null) description += ("Far: " + Father.FirstName + " (Id=" + Father.Id + ") ");
+            if (Mother != null) description += ("Mor: " + Mother.FirstName + " (Id=" + Mother.Id + ")");
             return description;
             //if (Mother == null) Mother = "";
             //if (Father == null) //en if for hver verdi, mother, født blablaba
