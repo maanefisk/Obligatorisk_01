@@ -14,13 +14,12 @@ namespace Slektstre
         {
             _people = new List<Person>(people);
 
-        WelcomeMessage = "Velkommen til familieappen! \n Skriv: \"hjelp\" for info! \n";
+        WelcomeMessage = "Velkommen til familieappen! \n Skriv: \"Hjelp\" for info! \n";
         CommandPrompt = "Gi kommando: \n";
         }
 
         public string HandleCommand(string command)
         {
-            
             string convertedCommand = command.ToLower();
 
             if (convertedCommand == ("vis " + command.Substring(4)))
@@ -30,18 +29,21 @@ namespace Slektstre
             }
             if (convertedCommand == "hjelp")
             {
-                return "\n\"Hjelp\" - får opp denne hjelp-teksten\n\"List\" - Lister alle medlemmer\n\"Vis \"nummer\"\" - viser person med tilhørende ID\n";
+                return "\n\"Hjelp\" - får opp denne hjelp-teksten\n\"Liste\" - Lister alle medlemmer\n\"Vis \"nummer\"\" - viser person med tilhørende ID\n";
             }
-            if (convertedCommand == "list")
+            if (convertedCommand == "liste")
             {
-                return "Liste";
+                foreach (var human in _people)
+                {
+                    return human.FirstName + "\n";
+                }
             }
-            return "hei";
+            return "Error!";
         }
         public string getPersonDescription(int? Id)
         {
             var oPerson = getPersonID(Id);
-            if (oPerson == null) return "Error";
+            if (oPerson == null) return "Ingen med denne Id'en \n";
             var whoPerson = oPerson.getDescription();
             return whoPerson;
         }
