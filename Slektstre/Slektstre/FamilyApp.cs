@@ -29,14 +29,16 @@ namespace Slektstre
             }
             if (convertedCommand == "hjelp")
             {
-                return "\n\"Hjelp\" - får opp denne hjelp-teksten\n\"Liste\" - Lister alle medlemmer\n\"Vis \"nummer\"\" - viser person med tilhørende ID\n";
+                return "\n\"Hjelp\" - får opp denne hjelp-teksten\n\"Liste\" - Lister alle medlemmer\n\"Vis \"Id-nummer\"\" - viser person med tilhørende ID\n";
             }
             if (convertedCommand == "liste")
             {
+                Console.WriteLine(" ");
                 foreach (var human in _people)
                 {
-                    return human.FirstName + "\n";
+                    Console.Write("(Id=" + human.Id + ") " + human.FirstName+ "\n");
                 }
+                return " ";
             }
             return "Error!";
         }
