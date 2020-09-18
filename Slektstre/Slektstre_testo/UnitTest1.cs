@@ -44,17 +44,31 @@ namespace Slektstre_testo
         {
             var p = new Person
             {
-                Id = 1,
+                FirstName = "Charlotte",
             };
 
             var actualDescription = p.getDescription();
-            var expectedDescription = "(Id=1)";
+            var expectedDescription = "Charlotte";
 
             Assert.AreEqual(expectedDescription, actualDescription);
         }
 
         [Test]
-        public void Test()
+        public void MyOwnTest2()
+        {
+            var p = new Person
+            {
+                FirstName = "Charlotte ",
+            };
+
+            var actualDescription = p.getDescription();
+            var expectedDescription = "Charlotte";
+
+            Assert.AreNotEqual(expectedDescription, actualDescription);
+        }
+
+        [Test]
+        public void LastTest()
         {
             var sverreMagnus = new Person { Id = 1, FirstName = "Sverre Magnus", BirthYear = 2005 };
             var ingridAlexandra = new Person { Id = 2, FirstName = "Ingrid Alexandra", BirthYear = 2004 };
