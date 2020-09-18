@@ -23,7 +23,7 @@ namespace Slektstre
             marius.Mother = metteMarit;
             haakon.Father = harald;
             haakon.Mother = sonja;
-            harald.Father = olav; 
+            harald.Father = olav;
 
             var app = new FamilyApp(sverreMagnus, ingridAlexandra, haakon,
                 metteMarit, marius, harald, sonja, olav);

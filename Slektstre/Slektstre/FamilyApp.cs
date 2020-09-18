@@ -7,10 +7,10 @@ namespace Slektstre
 {
     public class FamilyApp
     {
-        public List<Person> _people;
+        public List<Person> _people; //Lager en liste ut av class Person og kaller den _people.
         public string WelcomeMessage {get; set;}
         public string CommandPrompt {get; set;}
-    public FamilyApp(params Person[] people) // Alt som ligger i Person blir til Array som heter _people.
+    public FamilyApp(params Person[] people) // Alt som ligger i Person blir til Array som heter _people. Constructor.
         {
             _people = new List<Person>(people); //Her blir denne lista navngitt tror jeg
 
@@ -25,8 +25,9 @@ namespace Slektstre
             if (convertedCommand == ("vis " + command.Substring(4)))
             {
                 int commandId = Convert.ToInt32(command.Substring(4));
-                return getPersonDescription(commandId);
+                return getPersonDescription(commandId) + "\n" + ChildrenOfPerson(commandId);
             }
+
             if (convertedCommand == "hjelp")
             {
                 return "\n\"Hjelp\" - får opp denne hjelp-teksten\n\"Liste\" - Lister alle medlemmer\n\"Vis \"Id-nummer\"\" - viser person med tilhørende ID\n";
@@ -42,6 +43,24 @@ namespace Slektstre
             }
             return "Error!";
         }
+
+        public string ChildrenOfPerson(int? Id)
+        {
+            var result = "  Barn:\n";
+            var iPerson = getPersonID(Id);
+            var child = "";
+            foreach (var homan in _people)
+            {
+                var homanFather = homan.Father;
+                var father = homanFather.Id;
+                if (father == Id)
+                {
+                    child += ("    " + homan.FirstName) + " " + "(Id=" + homan.Id + ") " + "Født: " + homan.BirthYear + "\n";
+                }
+            }
+
+            return result + child;
+        }
         public string getPersonDescription(int? Id)
         {
             var oPerson = getPersonID(Id);
@@ -54,7 +73,6 @@ namespace Slektstre
             return _people.FirstOrDefault(p => p.Id == Id);
         }
 
-        
         
     }
 }

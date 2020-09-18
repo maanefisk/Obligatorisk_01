@@ -40,20 +40,6 @@ namespace Slektstre_testo
         }
 
         [Test]
-        public void MyOwnTest()
-        {
-            var p = new Person
-            {
-                FirstName = "Charlotte",
-            };
-
-            var actualDescription = p.getDescription();
-            var expectedDescription = "Charlotte";
-
-            Assert.AreEqual(expectedDescription, actualDescription);
-        }
-
-        [Test]
         public void MyOwnTest2()
         {
             var p = new Person
@@ -66,7 +52,7 @@ namespace Slektstre_testo
 
             Assert.AreNotEqual(expectedDescription, actualDescription);
         }
-
+        
         [Test]
         public void LastTest()
         {
