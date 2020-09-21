@@ -54,7 +54,7 @@ namespace Slektstre_testo
         }
         
         [Test]
-        public void LastTest()
+        public void FatherTest()
         {
             var sverreMagnus = new Person { Id = 1, FirstName = "Sverre Magnus", BirthYear = 2005 };
             var ingridAlexandra = new Person { Id = 2, FirstName = "Ingrid Alexandra", BirthYear = 2004 };
@@ -67,6 +67,23 @@ namespace Slektstre_testo
             var app = new FamilyApp(sverreMagnus, ingridAlexandra, haakon);
             var actualResponse = app.HandleCommand("vis 3");
             var expectedResponse = "Haakon Magnus (Id=3) Født: 1973 Far: Harald (Id=6)\n"
+                                   + "  Barn:\n"
+                                   + "    Sverre Magnus (Id=1) Født: 2005\n"
+                                   + "    Ingrid Alexandra (Id=2) Født: 2004\n";
+            Assert.AreEqual(expectedResponse, actualResponse);
+        }
+        [Test]
+        public void MotherTest()
+        {
+            var sverreMagnus = new Person { Id = 1, FirstName = "Sverre Magnus", BirthYear = 2005 };
+            var ingridAlexandra = new Person { Id = 2, FirstName = "Ingrid Alexandra", BirthYear = 2004 };
+            var metteMarit = new Person { Id = 4, FirstName = "Mette-Marit", BirthYear = 1973 };
+            sverreMagnus.Mother = metteMarit;
+            ingridAlexandra.Mother = metteMarit;
+
+            var app = new FamilyApp(sverreMagnus, ingridAlexandra, metteMarit);
+            var actualResponse = app.HandleCommand("vis 4");
+            var expectedResponse = "Mette-Marit (Id=4) Født: 1973 \n"
                                    + "  Barn:\n"
                                    + "    Sverre Magnus (Id=1) Født: 2005\n"
                                    + "    Ingrid Alexandra (Id=2) Født: 2004\n";

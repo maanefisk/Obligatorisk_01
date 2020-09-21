@@ -37,7 +37,7 @@ namespace Slektstre
                 Console.WriteLine(" ");
                 foreach (var human in _people)
                 {
-                    Console.Write("(Id=" + human.Id + ") " + human.FirstName+ "\n");
+                    Console.Write(getPersonDescription(human.Id) + "\n");
                 }
                 return " ";
             }
@@ -47,13 +47,13 @@ namespace Slektstre
         public string ChildrenOfPerson(int? Id)
         {
             var result = "  Barn:\n";
-            var iPerson = getPersonID(Id);
             var child = "";
+            var iPerson = getPersonID(Id);
             foreach (var homan in _people)
             {
-                var homanFather = homan.Father;
-                var father = homanFather.Id;
-                if (father == Id)
+                var father = homan.Father;
+                var mother = homan.Mother;
+                if (father == iPerson || mother == iPerson)
                 {
                     child += ("    " + homan.FirstName) + " " + "(Id=" + homan.Id + ") " + "Født: " + homan.BirthYear + "\n";
                 }
