@@ -59,7 +59,13 @@ namespace Slektstre
                 }
             }
 
-            return result + child;
+            if (child != "")
+            {
+                return result + child;
+            }
+
+            return null;
+
         }
         public string getPersonDescription(int? Id)
         {
