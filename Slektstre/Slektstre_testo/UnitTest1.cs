@@ -90,5 +90,18 @@ namespace Slektstre_testo
             Assert.AreEqual(expectedResponse, actualResponse);
         }
 
+        [Test]
+        public void ChildrenTest()
+        {
+            var sverreMagnus = new Person { Id = 1, FirstName = "Sverre Magnus", BirthYear = 2005 };
+            var ingridAlexandra = new Person { Id = 2, FirstName = "Ingrid Alexandra", BirthYear = 2004 };
+            var metteMarit = new Person { Id = 4, FirstName = "Mette-Marit", BirthYear = 1973 };
+
+            var app = new FamilyApp(sverreMagnus, ingridAlexandra, metteMarit);
+            var actualResponse = app.HandleCommand("vis 1");
+            var expectedResponse = "Sverre Magnus (Id=1) Født: 2005 \n";
+            Assert.AreEqual(expectedResponse, actualResponse);
+        }
+
     }
 }
