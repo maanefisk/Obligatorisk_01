@@ -40,7 +40,7 @@ namespace Slektstre_testo
         }
 
         [Test]
-        public void MyOwnTest2()
+        public void MyOwnTest1()
         {
             var p = new Person
             {
@@ -52,7 +52,22 @@ namespace Slektstre_testo
 
             Assert.AreNotEqual(expectedDescription, actualDescription);
         }
-        
+
+        [Test]
+        public void MyOwnTest2()
+        {
+            var hest = new Person { Id = 1, FirstName = "Hest", BirthYear = 1755 };
+            var zebra = new Person { Id = 2, FirstName = "Zebra", BirthYear = 1312 };
+            hest.Father = zebra;
+
+            var app = new FamilyApp(hest, zebra);
+            var actualResponse = app.HandleCommand("vis 2");
+            var expectedResponse = "Zebra (Id=2) Født: 1312 \n"
+                                   + "  Barn:\n"
+                                   + "    Hest (Id=1) Født: 1755\n";
+            Assert.AreEqual(expectedResponse, actualResponse);
+        }
+
         [Test]
         public void FatherTest()
         {
