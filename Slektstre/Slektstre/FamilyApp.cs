@@ -49,6 +49,11 @@ namespace Slektstre
             var result = "  Barn:\n";
             var child = "";
             var iPerson = getPersonID(Id);
+            if (iPerson == null)
+            {
+                return "";
+
+            }
             foreach (var homan in _people)
             {
                 var father = homan.Father;
